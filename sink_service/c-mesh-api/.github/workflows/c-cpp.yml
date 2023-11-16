@@ -1,0 +1,21 @@
+name: Build example
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: make example
+      run: make
+      working-directory: example
+    - name: make test
+      run: make
+      working-directory: test
